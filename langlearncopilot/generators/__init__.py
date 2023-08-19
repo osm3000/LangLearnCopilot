@@ -1,3 +1,3 @@
-from .main import generate_phrases
+from .main import generate_phrases, generate_unique_words
 
-__all__ = ["generate_phrases"]
+__all__ = ["generate_phrases", "generate_unique_words"]
