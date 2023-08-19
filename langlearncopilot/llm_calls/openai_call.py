@@ -13,8 +13,17 @@ try:
 except ValueError:
     raise ValueError("OPENAI_API_KEY not set.")
 
+
 # Wrap the prompt in the data-structure that OpenAI expects
-def _wrap_prompt(prompt_to_send: str, language: str="english"):
+def _wrap_prompt(prompt_to_send: str, language: str = "french"):
+    """
+    Wrap the prompt in the data-structure that OpenAI expects
+
+    Example:
+    prompt_to_send = "Hello, I am a"
+    language = "french"
+    _wrap_prompt(prompt_to_send=prompt_to_send, language=language)
+    """
     return [
         {
             "role": "system",
@@ -23,15 +32,15 @@ def _wrap_prompt(prompt_to_send: str, language: str="english"):
         {
             "role": "user",
             "content": prompt_to_send,
-        }
+        },
     ]
+
 
 # OpenAI API call
 def call_openai(prompt_to_send):
-
     open_ai_data_struct = _wrap_prompt(prompt_to_send=prompt_to_send)
 
-    model_works_fine: bool = False # TODO: Unused for now
+    model_works_fine: bool = False  # TODO: Unused for now
     model_response: str = None
 
     model_response = openai.ChatCompletion.create(
