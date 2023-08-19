@@ -1,7 +1,23 @@
-[ ] Add doctrings
-[ ] Add documentation
-[ ] Fill the readme properly
-[ ] Parser modules
-[ ] Better OpenAI key handling logic: allow the user to add/point at `.env` file
-[ ] CLI interface
-[ ] License
+TODO
+====
+- Add doctrings
+- Add documentation
+- Fill the readme properly
+    - Get a template from a nice library, and fill it
+- Parser modules
+- CLI interface
+    - Always ship with min interface
+- License
+- Convert the OpenAI calling function to be async
+  - GREAT for production on a server/website
+- Saving the flashcards: should I handle this inside the generator? or leave this as a separate function?
+  - If I handle it, how to handle the file naming? or this should be left to the user?
+  - I am more tempted to
+    - leave it to the user
+    - Don't do the call from the generators
+
+=======
+
+Done
+====
+- Better OpenAI key handling logic: allow the user to add/point at `.env` file
