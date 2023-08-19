@@ -1,0 +1,7 @@
+[ ] Add doctrings
+[ ] Add documentation
+[ ] Fill the readme properly
+[ ] Parser modules
+[ ] Better OpenAI key handling logic: allow the user to add/point at `.env` file
+[ ] CLI interface
+[ ] License
