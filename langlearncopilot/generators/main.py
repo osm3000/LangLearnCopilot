@@ -9,14 +9,32 @@ current_directory = str(pathlib.Path(__file__).parent.absolute())
 with open(f"{current_directory}/configs/prompts.yml", "r") as f:
     PROMPT_TEMPLATE = yaml.safe_load(f)
 
-def generate_phrases(word:str):
+
+def generate_unique_words(article: str):
+    global PROMPT_TEMPLATE
+    relevant_settings = PROMPT_TEMPLATE["generate_unique_words"]
+    relevant_prompt = relevant_settings["prompt"]
+
+    print("Prompt to submit: ", relevant_prompt.format(article=article))
+    # Call OpenAI
+    model_response, model_works_fine = call_openai(
+        prompt_to_send=relevant_prompt.format(article=article)
+    )
+
+    # Print the response
+    print("Model response: ", model_response)
+
+
+def generate_phrases(word: str):
     global PROMPT_TEMPLATE
     relevant_settings = PROMPT_TEMPLATE["generate_phrases"]
     relevant_prompt = relevant_settings["prompt"]
-    
+
     print("Prompt to submit: ", relevant_prompt.format(word=word))
     # Call OpenAI
-    model_response, model_works_fine = call_openai(prompt_to_send=relevant_prompt.format(word=word))
+    model_response, model_works_fine = call_openai(
+        prompt_to_send=relevant_prompt.format(word=word)
+    )
 
     # Print the response
     print("Model response: ", model_response)
