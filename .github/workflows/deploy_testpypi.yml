@@ -3,7 +3,7 @@ name: CheckPR
 
 on:
   release:
-    types: [published]
+    types: [prereleased]
 
 
 jobs:
