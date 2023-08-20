@@ -5,7 +5,7 @@ import logging
 from .utils import save_flash_card
 
 from ..llm_calls import call_openai
-from ..parsers import phrase_parser
+from ..parsers import phrase_parser, word_parser
 
 
 # Set up logging
@@ -30,13 +30,16 @@ def generate_unique_words(article: str):
     # Call OpenAI
     model_response = call_openai(prompt_to_send=relevant_prompt.format(article=article))
 
+    # Parse the response
+    parsed_model_response = word_parser(llm_output=model_response)
+
     # Print the response
-    logging.info(f"Model response:\n{model_response}")
+    logging.info(f"Parsed response:\n{parsed_model_response}")
 
-    return model_response
+    return parsed_model_response
 
 
-def generate_phrases(word: str, save_to_file: bool = True):
+def generate_phrases(word: str, save_to_file: bool = False):
     global PROMPT_TEMPLATE
     relevant_settings = PROMPT_TEMPLATE["generate_phrases"]
     relevant_prompt = relevant_settings["prompt"]
@@ -59,3 +62,7 @@ def generate_phrases(word: str, save_to_file: bool = True):
         save_flash_card(flash_cards=parsed_model_response)
 
     return parsed_model_response
+
+
+def generate_phrase_for_multiple_words():
+    raise NotImplementedError

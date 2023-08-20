@@ -1,4 +1,3 @@
-import pathlib
 import logging
 
 # Set up logging

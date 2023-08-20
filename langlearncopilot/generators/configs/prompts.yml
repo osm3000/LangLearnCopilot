@@ -1,5 +1,5 @@
 generate_unique_words:
-  prompt: "Extract all the unique words in the following text, and convert them to their original lemma. Remove the names of the countries, people, websites, softwares, numbers, and entities in general. Write each word on a separate line: \n \n ```{article}```"
+  prompt: "Extract all the unique words in the following text, and convert them to their original lemma. Remove the names of the countries, people, websites, softwares, numbers, and entities in general. Write each word and translation, separated by `;`, on a separate line: \n \n ```{article}```"
 
 generate_phrases:
   prompt: "For each of the following French words, create three sentences using the word in different contexts. If the word is a verb, make 3 examples on each tense. Separate the french sentence and its english translation by a `;`. Each sentence is on a new line. Don't write the sentence number.: \n {word} \n"

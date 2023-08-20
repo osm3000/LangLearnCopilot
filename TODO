@@ -4,7 +4,6 @@ TODO
 - Add documentation
 - Fill the readme properly
     - Get a template from a nice library, and fill it
-- Parser modules
 - CLI interface
     - Always ship with min interface
 - License
@@ -15,9 +14,20 @@ TODO
   - I am more tempted to
     - leave it to the user
     - Don't do the call from the generators
+- Add flake8, mypy and isort to the pre-commit hooks
+  - Test the conflict between isort and black formatter
+  - Add the configurations for those in the `pyproject.toml`
+- Add the testcases
+- Add tox to orchestrate the testing
+- Workflows
+  - Testcases trigger on merge/push
+  - release
+    - pre-release: release to testpypi
+    - release: release to pypi
 
 =======
 
 Done
 ====
 - Better OpenAI key handling logic: allow the user to add/point at `.env` file
+- Parser modules
