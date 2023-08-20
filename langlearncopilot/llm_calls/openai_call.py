@@ -1,17 +1,33 @@
 import openai
 import os
 import logging
+import dotenv
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-# API key handling: check if already set, if not, raise error
-try:
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-except ValueError:
-    raise ValueError("OPENAI_API_KEY not set.")
+def _configure_openai_key():
+    """
+    Set OPENAI_API_KEY environment variable and initialize OpenAI object
+    """
+    openai_key = os.getenv("OPENAI_API_KEY", None)
+    if openai_key is None:
+        logger.info(
+            "Can't find OPENAI_API_KEY environment variable. Checking the .env file."
+        )
+        dotenv.load_dotenv()
+        openai_key = os.getenv("OPENAI_API_KEY", None)
+        if openai_key is None:
+            raise ValueError(
+                """
+                             OPENAI_API_KEY not set. Can't find it in the .env file either.\n
+                             You can also set the key by call langlearncopilot.set_openai_key(key="YOUR_KEY")
+                             """
+            )
+
+    openai.api_key = openai_key
 
 
 # Wrap the prompt in the data-structure that OpenAI expects
@@ -38,9 +54,11 @@ def _wrap_prompt(prompt_to_send: str, language: str = "french"):
 
 # OpenAI API call
 def call_openai(prompt_to_send):
+    # Setup the OpenAI API key
+    _configure_openai_key()
+
     open_ai_data_struct = _wrap_prompt(prompt_to_send=prompt_to_send)
 
-    model_works_fine: bool = False  # TODO: Unused for now
     model_response: str = None
 
     model_response = openai.ChatCompletion.create(
@@ -53,6 +71,5 @@ def call_openai(prompt_to_send):
         # presence_penalty=0,
         # stop=["\n"]
     )["choices"][0]["message"]["content"]
-    model_works_fine = True
 
-    return model_response, model_works_fine
+    return model_response

@@ -1,7 +1,8 @@
 import sys
 
 sys.path.append("..")
-from langlearncopilot.generators import generate_phrases
+
+from langlearncopilot import generators
 
 
-generate_phrases("combien")
+generators.generate_phrases("combien")
