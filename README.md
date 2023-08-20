@@ -13,7 +13,7 @@ Soon, pretty simple:
 `pip install langlearncopilot`
 
 For now:
-`pip install -i https://test.pypi.org/simple/ langlearncopilot`
+`pip install -i https://test.pypi.org/simple/ langlearncopilot --extra-index-url https://pypi.org/simple`
 
 ## Usage
 You can find examples in the `./examples` folder

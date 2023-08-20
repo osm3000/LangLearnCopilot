@@ -1,5 +1,5 @@
 # Run the tests with pytest, then run mypy and flake8
-name: CheckPR
+name: Publish a release to TestPyPI
 
 on:
   release:
