@@ -1,6 +1,7 @@
 import yaml
 import pathlib
 import logging
+from typing import List
 
 from .utils import save_flash_card
 
@@ -64,5 +65,21 @@ def generate_phrases(word: str, save_to_file: bool = False):
     return parsed_model_response
 
 
-def generate_phrase_for_multiple_words():
-    raise NotImplementedError
+def generate_phrase_for_multiple_words(list_of_words: List[str], separator: str = None):
+    """ """
+    # Extract the actual words from the list of words - assume there is a translation for each word, separated by a ;
+    if separator is not None:
+        list_of_words = [word.split(separator)[0] for word in list_of_words]
+
+    # Generate the phrases for each word
+    phrases = []
+    for word in list_of_words:
+        phrases += generate_phrases(word=word, save_to_file=True)
+
+    # # Print the phrases
+    # print("-"*50)
+    # for item in phrases:
+    #     print(item)
+    # print("-"*50)
+
+    return phrases
