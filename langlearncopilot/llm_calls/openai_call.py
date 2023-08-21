@@ -23,7 +23,7 @@ def _configure_openai_key():
             raise ValueError(
                 """
                              OPENAI_API_KEY not set. Can't find it in the .env file either.\n
-                             You can also set the key by call langlearncopilot.set_openai_key(key="YOUR_KEY")
+                             You can also set the key by call langlearncopilot.llm_calls.set_openai_key(key="YOUR_KEY")
                              """
             )
 
