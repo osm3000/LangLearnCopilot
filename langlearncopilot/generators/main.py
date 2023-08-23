@@ -3,8 +3,6 @@ import pathlib
 import logging
 from typing import List
 
-from .utils import save_flash_card
-
 from ..llm_calls import call_openai
 from ..parsers import phrase_parser, word_parser
 
@@ -40,7 +38,7 @@ def generate_unique_words(article: str):
     return parsed_model_response
 
 
-def generate_phrases(word: str, save_to_file: bool = False):
+def generate_phrases(word: str):
     global PROMPT_TEMPLATE
     relevant_settings = PROMPT_TEMPLATE["generate_phrases"]
     relevant_prompt = relevant_settings["prompt"]
@@ -58,10 +56,6 @@ def generate_phrases(word: str, save_to_file: bool = False):
     # Print the parsed response
     logging.info(f"Parsed model response:\n{parsed_model_response}")
 
-    # Save the flash cards to a file
-    if save_to_file:
-        save_flash_card(flash_cards=parsed_model_response)
-
     return parsed_model_response
 
 
@@ -74,12 +68,6 @@ def generate_phrase_for_multiple_words(list_of_words: List[str], separator: str 
     # Generate the phrases for each word
     phrases = []
     for word in list_of_words:
-        phrases += generate_phrases(word=word, save_to_file=True)
-
-    # # Print the phrases
-    # print("-"*50)
-    # for item in phrases:
-    #     print(item)
-    # print("-"*50)
+        phrases += generate_phrases(word=word)
 
     return phrases

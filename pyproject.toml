@@ -1,13 +1,12 @@
 [tool.poetry]
 name = "langlearncopilot"
-version = "0.1.1-a.12"
+version = "0.1.0"
 description = "A human-language learning copilot"
 authors = ["osm3000 <bd2fc312-d8c3-482f-8535-94c14174bc88@anonaddy.me>"]
 readme = "README.md"
 classifiers = [
     "Topic :: Education",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
-    "Development Status :: 2 - Pre-Alpha",
 ]
 
 [tool.poetry.dependencies]
@@ -25,3 +24,7 @@ twine = "^4.0.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/osm3000/LangLearnCopilot/issues"
+"Home Page" = "https://github.com/osm3000/LangLearnCopilot"
