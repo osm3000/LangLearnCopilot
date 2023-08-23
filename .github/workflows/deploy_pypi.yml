@@ -2,9 +2,11 @@
 name: Publish a release to PyPI
 
 on:
-  release:
-    types: [released]
-
+  # release:
+  #   types: [released]
+  push:
+    branches:
+      - main
 
 jobs:
   build:
