@@ -21,6 +21,7 @@ TODO
   - Testcases trigger on merge/push
   - mypy
 - Add PyPi classifiers
+- Check interacting with Anki via CLI `https://pypi.org/project/inka/`. Might lead to much easier experience for users
 =======
 
 Done
