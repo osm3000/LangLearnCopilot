@@ -31,7 +31,7 @@ jobs:
 
     - name: Run pytest
       run: |
-        pytest
+        poetry run pytest
     # - name: Run mypy
     #   run: |
     #     mypy . --check-untyped-defs
