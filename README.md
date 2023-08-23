@@ -8,12 +8,7 @@ While this is a standalone library, my advice is, for the best results, to use i
 The main two applications at the moment
 
 ## Installation
-Soon, pretty simple:
-
-`pip install langlearncopilot`
-
-For now:
-`pip install -i https://test.pypi.org/simple/ langlearncopilot --extra-index-url https://pypi.org/simple`
+Soon, pretty simple: `pip install langlearncopilot`
 
 ## Usage
 You can find examples in the `./examples` folder
