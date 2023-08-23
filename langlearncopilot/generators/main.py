@@ -3,8 +3,6 @@ import pathlib
 import logging
 from typing import List
 
-from .utils import save_flash_card
-
 from ..llm_calls import call_openai
 from ..parsers import phrase_parser, word_parser
 

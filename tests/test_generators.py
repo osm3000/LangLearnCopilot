@@ -73,6 +73,6 @@ def test_generate_phrase_for_multiple_words():
         assert "This is a test phrase" in phrases
         assert "Another test phrase" in phrases
         assert "Yet another test phrase" in phrases
-        mock_generate_phrases.assert_any_call(word="test", save_to_file=True)
-        mock_generate_phrases.assert_any_call(word="word", save_to_file=True)
-        mock_generate_phrases.assert_any_call(word="phrase", save_to_file=True)
+        mock_generate_phrases.assert_any_call(word="test")
+        mock_generate_phrases.assert_any_call(word="word")
+        mock_generate_phrases.assert_any_call(word="phrase")
