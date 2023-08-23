@@ -24,6 +24,5 @@ jobs:
 
     - name: configure poetry
       run: |
-        poetry config repositories.pypi https://pypi.org/legacy/
-        poetry config http-basic.pypi __token__ ${{ secrets.PYPI_TOKEN }}
+        poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
         poetry build; poetry publish --repository pypi
