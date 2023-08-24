@@ -7,6 +7,12 @@ readme = "README.md"
 classifiers = [
     "Topic :: Education",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: OSI Approved :: MIT License",
+    "Topic :: Python :: 3.7",
+    "Topic :: Python :: 3.8",
+    "Topic :: Python :: 3.9",
+    "Topic :: Python :: 3.10",
+    "Topic :: Python :: 3.11",
 ]
 
 [tool.poetry.dependencies]
