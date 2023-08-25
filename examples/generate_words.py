@@ -1,8 +1,3 @@
-import sys
-
-sys.path.append("..")
-
-# from langlearncopilot.generators import generate_unique_words
 from langlearncopilot import generators
 
 
