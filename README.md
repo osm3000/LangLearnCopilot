@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+
 # LangLearnCopilot
 LangLearnCopilot is a collection of functions and tools, to generate content in a proper format, to help you learn a new language.
 
