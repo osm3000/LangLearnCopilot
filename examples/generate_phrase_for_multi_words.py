@@ -14,4 +14,5 @@ generators.generate_phrase_for_multiple_words(
         "de; of",
     ],
     separator=";",
+    language="french",
 )
