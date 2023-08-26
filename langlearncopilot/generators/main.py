@@ -20,14 +20,16 @@ with open(f"{current_directory}/configs/prompts.yml", "r") as f:
     PROMPT_TEMPLATE = yaml.safe_load(f)
 
 
-def generate_unique_words(article: str):
+def generate_unique_words(article: str, language: str = "french"):
     global PROMPT_TEMPLATE
     relevant_settings = PROMPT_TEMPLATE["generate_unique_words"]
-    relevant_prompt = relevant_settings["prompt"]
+    relevant_prompt = relevant_settings["prompt"].format(
+        language=language, article=article
+    )
 
-    logging.info(f"Prompt to submit: {relevant_prompt.format(article=article)}")
+    logging.info(f"Prompt to submit: {relevant_prompt}")
     # Call OpenAI
-    model_response = call_openai(prompt_to_send=relevant_prompt.format(article=article))
+    model_response = call_openai(prompt_to_send=relevant_prompt)
 
     # Parse the response
     parsed_model_response = word_parser(llm_output=model_response)
@@ -38,15 +40,15 @@ def generate_unique_words(article: str):
     return parsed_model_response
 
 
-def generate_phrases(word: str):
+def generate_phrases(word: str, language: str = "french"):
     global PROMPT_TEMPLATE
     relevant_settings = PROMPT_TEMPLATE["generate_phrases"]
-    relevant_prompt = relevant_settings["prompt"]
+    relevant_prompt = relevant_settings["prompt"].format(language=language, word=word)
 
-    logging.info(f"Prompt to submit: {relevant_prompt.format(word=word)}")
+    logging.info(f"Prompt to submit: {relevant_prompt}")
 
     # Call OpenAI
-    model_response = call_openai(prompt_to_send=relevant_prompt.format(word=word))
+    model_response = call_openai(prompt_to_send=relevant_prompt)
 
     # Print the response
 
@@ -59,7 +61,9 @@ def generate_phrases(word: str):
     return parsed_model_response
 
 
-def generate_phrase_for_multiple_words(list_of_words: List[str], separator: str = None):
+def generate_phrase_for_multiple_words(
+    list_of_words: List[str], separator: str = None, language: str = "french"
+):
     """ """
     # Extract the actual words from the list of words - assume there is a translation for each word, separated by a ;
     if separator is not None:
@@ -68,6 +72,6 @@ def generate_phrase_for_multiple_words(list_of_words: List[str], separator: str 
     # Generate the phrases for each word
     phrases = []
     for word in list_of_words:
-        phrases += generate_phrases(word=word)
+        phrases += generate_phrases(word=word, language=language)
 
     return phrases
