@@ -1,13 +1,5 @@
 from typing import (
     List,
-    Dict,
-    Tuple,
-    Union,
-    Optional,
-    Any,
-    Callable,
-    TypeVar,
-    Generic,
     Sequence,
     Mapping,
 )

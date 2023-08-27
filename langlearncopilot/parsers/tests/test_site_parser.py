@@ -2,8 +2,6 @@
 Test the site parser module.
 """
 
-import pytest
-from unittest.mock import patch
 from langlearncopilot.parsers.site_parser import clean_text, get_soup, get_text
 
 
