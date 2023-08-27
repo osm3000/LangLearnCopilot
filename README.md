@@ -10,7 +10,7 @@ While this is a standalone library, my advice is, for the best results, to use i
 The main two applications at the moment
 
 ## Installation
-Soon, pretty simple: `pip install langlearncopilot`
+`pip install langlearncopilot`
 
 ## Usage
 You can find examples in the `./examples` folder
