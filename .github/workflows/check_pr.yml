@@ -23,7 +23,7 @@ jobs:
 
     - name: Install langlearncopilot
       run: |
-        poetry install
+        poetry install --with dev
 
     - name: Run flake8
       run: |

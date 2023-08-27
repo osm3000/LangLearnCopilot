@@ -28,7 +28,10 @@ beautifulsoup4 = "^4.12.2"
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"
 tox = "^4.9.0"
-twine = "^4.0.2"
+types-requests = "^2.31.0.2"
+types-pyyaml = "^6.0.12.11"
+flake8 = "^6.1.0"
+mypy = "^1.5.1"
 
 [build-system]
 requires = ["poetry-core"]
