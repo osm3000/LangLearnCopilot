@@ -26,7 +26,7 @@ jobs:
 
     - name: Run flake8
       run: |
-        flake8 ./langlearncopilot --max-line-length=120 --ignore=E203,W503,E5
+        poerty run flake8 ./langlearncopilot --max-line-length=120 --ignore=E203,W503,E5
 
     - name: Run pytest
       run: |
