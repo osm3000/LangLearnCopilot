@@ -2,6 +2,7 @@ import openai
 import os
 import logging
 import dotenv
+from ..datatypes import TEXT
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -31,7 +32,7 @@ def _configure_openai_key():
 
 
 # Wrap the prompt in the data-structure that OpenAI expects
-def _wrap_prompt(prompt_to_send: str, language: str = "french"):
+def _wrap_prompt(prompt_to_send: TEXT, language: TEXT = "french"):
     """
     Wrap the prompt in the data-structure that OpenAI expects
 
@@ -53,15 +54,14 @@ def _wrap_prompt(prompt_to_send: str, language: str = "french"):
 
 
 # OpenAI API call
-def call_openai(prompt_to_send):
+def call_openai(prompt_to_send: TEXT) -> TEXT:
     # Setup the OpenAI API key
     _configure_openai_key()
 
     open_ai_data_struct = _wrap_prompt(prompt_to_send=prompt_to_send)
 
-    model_response: str = None
-
-    model_response = openai.ChatCompletion.create(
+    # model_response: str = ''
+    model_response: str = openai.ChatCompletion.create(
         model="gpt-4-0314",
         messages=open_ai_data_struct,
         temperature=0.7,
@@ -71,5 +71,4 @@ def call_openai(prompt_to_send):
         # presence_penalty=0,
         # stop=["\n"]
     )["choices"][0]["message"]["content"]
-
     return model_response
