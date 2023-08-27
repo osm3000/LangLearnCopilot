@@ -32,6 +32,6 @@ jobs:
     - name: Run pytest
       run: |
         poetry run pytest
-    # - name: Run mypy
-    #   run: |
-    #     mypy . --check-untyped-defs
+    - name: Run mypy
+      run: |
+        mypy ./langlearncopilot
