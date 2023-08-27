@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install poetry
+        pip install flake8 pytest mypy poetry
 
     - name: Install langlearncopilot
       run: |
@@ -26,7 +26,7 @@ jobs:
 
     - name: Run flake8
       run: |
-        poerty run flake8 ./langlearncopilot --max-line-length=120 --ignore=E203,W503,E5
+        flake8 ./langlearncopilot --max-line-length=120 --ignore=E203,W503,E5
 
     - name: Run pytest
       run: |
