@@ -30,6 +30,8 @@ tox = "^4.9.0"
 types-requests = "^2.31.0.2"
 types-pyyaml = "^6.0.12.11"
 pytest = "^7.4.0"
+mypy = "^1.5.1"
+flake8 = "^6.1.0"
 
 [build-system]
 requires = ["poetry-core"]
