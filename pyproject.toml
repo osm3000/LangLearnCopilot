@@ -9,12 +9,8 @@ repository = "https://github.com/osm3000/LangLearnCopilot"
 classifiers = [
     "Topic :: Education",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
-    "Topic :: OSI Approved :: MIT License",
-    "Topic :: Python :: 3.7",
-    "Topic :: Python :: 3.8",
-    "Topic :: Python :: 3.9",
-    "Topic :: Python :: 3.10",
-    "Topic :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.9",
 ]
 
 [tool.poetry.dependencies]
