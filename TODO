@@ -11,6 +11,7 @@ TODO
 - Workflows
   - on pull request
     - run mypy
+    - Do I need pylint? or flake8 is enough?
 - Check interacting with Anki via CLI `https://pypi.org/project/inka/`. Might lead to much easier experience for users
 =======
 
@@ -39,3 +40,5 @@ Done
     - leave it to the user
     - Don't do the call from the generators
   - Should be handled by a separate function in a separate step
+- Add a unified place for all the datatypes of the project
+- Enable reading a website URL and extract the text from it
