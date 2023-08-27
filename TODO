@@ -13,6 +13,9 @@ TODO
     - run mypy
     - Do I need pylint? or flake8 is enough?
 - Check interacting with Anki via CLI `https://pypi.org/project/inka/`. Might lead to much easier experience for users
+- Add examples for the site parser
+- Modify the readme to take into account changes in the functions
+
 =======
 
 Done
