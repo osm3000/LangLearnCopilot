@@ -9,6 +9,7 @@ from ..datatypes import (
     TEXT_TRANSLATION,
     MULTIPLE_PHRASES_TRANSLATION,
     TEXT_SEQUENCE,
+    OPTIONAL_TEXT,
 )
 
 
@@ -67,7 +68,9 @@ def generate_phrases(
 
 
 def generate_phrase_for_multiple_words(
-    list_of_words: TEXT_SEQUENCE, separator: TEXT = None, language: TEXT = "french"
+    list_of_words: TEXT_SEQUENCE,
+    separator: OPTIONAL_TEXT = None,
+    language: TEXT = "french",
 ) -> MULTIPLE_PHRASES_TRANSLATION:
     """ """
     # Extract the actual words from the list of words - assume there is a translation for each word, separated by a ;
