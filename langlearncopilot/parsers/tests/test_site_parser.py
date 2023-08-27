@@ -2,12 +2,16 @@
 Test the site parser module.
 """
 
-from langlearncopilot.parsers.site_parser import clean_text, get_soup, get_text
+from langlearncopilot.parsers.site_parser import (
+    _clean_text,
+    _get_soup,
+    get_text_from_webpage,
+)
 
 
 def test_clean_text():
     """
-    Test the clean_text function.
+    Test the _clean_text function.
     """
     text = [
         "1. This is a line",
@@ -23,26 +27,26 @@ def test_clean_text():
         "It is me again",
     ]
 
-    assert clean_text(text) == expected
+    assert _clean_text(text) == expected
 
 
 def test_get_soup():
     """
-    Test the get_soup function.
+    Test the _get_soup function.
     """
     url = "https://www.allendowney.com/wp/"
-    soup = get_soup(url)
+    soup = _get_soup(url)
     assert soup.title.string == "Allen Downey"
 
 
-def test_get_text():
+def test_get_text_from_webpage():
     """
-    Test the get_text function.
+    Test the get_text_from_webpage function.
     """
-    # Mock the get_soup function
+    # Mock the _get_soup function
     url = "https://www.python.org/"
 
-    text = get_text(url)
+    text = get_text_from_webpage(url)
     assert (
         "Python source code and installers are available for download for all versions!"
         in text
