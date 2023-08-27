@@ -55,7 +55,7 @@ generators.generate_phrases("combien")
 ```
 
 returns
-```
+```python
 [
     {'combien': {'phrase': 'Combien de personnes sont venues à la fête?', 'translation': ' How many people came to the party?'}},
     {'combien': {'phrase': 'Combien coûte ce sac à dos?', 'translation': ' How much does this backpack cost?'}},
@@ -64,7 +64,7 @@ returns
 ```
 
 ### Extract unique words from URL, with their translation
-```
+```python
 from langlearncopilot.parsers import get_text_from_webpage
 from langlearncopilot.generators import generate_unique_words
 
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
 ```
 returns
-```
+```python
 {
     'comment': 'how',
     'les': 'the',

@@ -48,7 +48,10 @@ def phrase_parser(word: str, llm_output: str) -> MULTIPLE_PHRASES_TRANSLATION:
     phrases_dicts: MULTIPLE_PHRASES_TRANSLATION = []
     for i, line in enumerate(phrases_output):
         phrase, translation = line.split(";")
-        phrases_dicts.append({word: {"phrase": phrase, "translation": translation}})
+        # phrases_dicts.append({word: {"phrase": phrase, "translation": translation}})
+        phrases_dicts.append(
+            {"word": word, "phrase": phrase, "translation": translation}
+        )
 
     # print(phrases_dicts)
 

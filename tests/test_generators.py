@@ -57,9 +57,9 @@ def test_generate_phrases():
         """
         phrases = generate_phrases(word=word, language="french")
         assert len(phrases) == 3
-        assert word in phrases[0]
-        assert word in phrases[1]
-        assert word in phrases[2]
+        assert word == phrases[0]["word"]
+        assert word == phrases[1]["word"]
+        assert word == phrases[2]["word"]
 
         mock_call_openai.assert_called_once_with(prompt_to_send=relevant_prompt)
 
@@ -78,9 +78,9 @@ def test_generate_phrase_for_multiple_words():
         )
 
         assert len(phrases) == 9
-        assert list_of_words[0] in phrases[0]
-        assert list_of_words[1] in phrases[4]
-        assert list_of_words[2] in phrases[-1]
+        assert list_of_words[0] == phrases[0]["word"]
+        assert list_of_words[1] == phrases[3]["word"]
+        assert list_of_words[2] == phrases[6]["word"]
         # mock_generate_phrases.assert_any_call(word="test", language="french")
         # mock_generate_phrases.assert_any_call(word="word", language="french")
         # mock_generate_phrases.assert_any_call(word="phrase", language="french")
