@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "langlearncopilot"
-version = "0.1.0"
-description = "A human-language learning copilot"
+version = "0.2.0"
+description = "LangLearnCopilot is a library to help you learn a 'human' language."
 authors = ["osm3000 <bd2fc312-d8c3-482f-8535-94c14174bc88@anonaddy.me>"]
 readme = "README.md"
+keywords = ["langlearncopilot", "gpt", "copilot"]
+repository = "https://github.com/osm3000/LangLearnCopilot"
 classifiers = [
     "Topic :: Education",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
@@ -35,3 +37,8 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/osm3000/LangLearnCopilot/issues"
 "Home Page" = "https://github.com/osm3000/LangLearnCopilot"
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
