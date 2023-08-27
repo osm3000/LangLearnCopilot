@@ -34,4 +34,4 @@ jobs:
         poetry run pytest
     - name: Run mypy
       run: |
-        mypy ./langlearncopilot
+        poetry run mypy ./langlearncopilot
