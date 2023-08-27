@@ -1,10 +1,7 @@
-from typing import (
-    List,
-    Sequence,
-    Mapping,
-)
+from typing import List, Sequence, Mapping, Optional
 
 TEXT = str
+OPTIONAL_TEXT = Optional[TEXT]
 TEXT_SEQUENCE = Sequence[TEXT]
 TEXT_TRANSLATION = Mapping[TEXT, TEXT]
 # PHRASE_TRANSLATION = Mapping[TEXT, TEXT_TRANSLATION]
