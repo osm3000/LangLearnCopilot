@@ -1,10 +1,15 @@
 import yaml
 import pathlib
 import logging
-from typing import List
 
 from ..llm_calls import call_openai
 from ..parsers import phrase_parser, word_parser
+from ..datatypes import (
+    TEXT,
+    TEXT_TRANSLATION,
+    MULTIPLE_PHRASES_TRANSLATION,
+    TEXT_SEQUENCE,
+)
 
 
 # Set up logging
@@ -20,7 +25,7 @@ with open(f"{current_directory}/configs/prompts.yml", "r") as f:
     PROMPT_TEMPLATE = yaml.safe_load(f)
 
 
-def generate_unique_words(article: str, language: str = "french"):
+def generate_unique_words(article: TEXT, language: TEXT = "french") -> TEXT_TRANSLATION:
     global PROMPT_TEMPLATE
     relevant_settings = PROMPT_TEMPLATE["generate_unique_words"]
     relevant_prompt = relevant_settings["prompt"].format(
@@ -40,7 +45,9 @@ def generate_unique_words(article: str, language: str = "french"):
     return parsed_model_response
 
 
-def generate_phrases(word: str, language: str = "french"):
+def generate_phrases(
+    word: TEXT, language: TEXT = "french"
+) -> MULTIPLE_PHRASES_TRANSLATION:
     global PROMPT_TEMPLATE
     relevant_settings = PROMPT_TEMPLATE["generate_phrases"]
     relevant_prompt = relevant_settings["prompt"].format(language=language, word=word)
@@ -49,8 +56,6 @@ def generate_phrases(word: str, language: str = "french"):
 
     # Call OpenAI
     model_response = call_openai(prompt_to_send=relevant_prompt)
-
-    # Print the response
 
     # Parse the response
     parsed_model_response = phrase_parser(word=word, llm_output=model_response)
@@ -62,15 +67,15 @@ def generate_phrases(word: str, language: str = "french"):
 
 
 def generate_phrase_for_multiple_words(
-    list_of_words: List[str], separator: str = None, language: str = "french"
-):
+    list_of_words: TEXT_SEQUENCE, separator: TEXT = None, language: TEXT = "french"
+) -> MULTIPLE_PHRASES_TRANSLATION:
     """ """
     # Extract the actual words from the list of words - assume there is a translation for each word, separated by a ;
     if separator is not None:
         list_of_words = [word.split(separator)[0] for word in list_of_words]
 
     # Generate the phrases for each word
-    phrases = []
+    phrases: MULTIPLE_PHRASES_TRANSLATION = []
     for word in list_of_words:
         phrases += generate_phrases(word=word, language=language)
 
