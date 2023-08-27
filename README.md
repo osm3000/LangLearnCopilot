@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+
 # LangLearnCopilot
 LangLearnCopilot is a collection of functions and tools, to generate content in a proper format, to help you learn a new language.
 
@@ -8,7 +10,7 @@ While this is a standalone library, my advice is, for the best results, to use i
 The main two applications at the moment
 
 ## Installation
-Soon, pretty simple: `pip install langlearncopilot`
+`pip install langlearncopilot`
 
 ## Usage
 You can find examples in the `./examples` folder
@@ -32,17 +34,17 @@ generators.generate_unique_words(
 ```
 returns
 ```
-[
-    'Bonjour; Hello',
-    'je; I',
-    "m'appelle; call myself",
-    'suis; am',
-    'un; a',
-    'étudiant; student',
-    'à; at',
-    "l'université; the university",
-    'de; of'
-]
+{
+    'bonjour': 'hello',
+    'je': 'i',
+    "m'appelle": 'is called',
+    'suis': 'am',
+    'un': 'a',
+    'étudiant': 'student',
+    'à': 'at',
+    "l'université": 'university',
+    'de': 'of'
+}
 ```
 
 ### Given a word, generate 3 phrases that are using these words
@@ -53,13 +55,44 @@ generators.generate_phrases("combien")
 ```
 
 returns
-```
+```python
 [
-    'combien ; Combien de pommes voulez-vous acheter ? ; How many apples do you want to buy?',
-    'combien ; Combien coûte cette robe ? ; How much does this dress cost?',
-    'combien ; Combien de temps dure le film ? ; How long does the movie last?'
+    {'combien': {'phrase': 'Combien de personnes sont venues à la fête?', 'translation': ' How many people came to the party?'}},
+    {'combien': {'phrase': 'Combien coûte ce sac à dos?', 'translation': ' How much does this backpack cost?'}},
+    {'combien': {'phrase': "Il m'a demandé combien de temps cela prendrait.", 'translation': ' He asked me how long it would take.'}}
 ]
 ```
 
 ### Extract unique words from URL, with their translation
-TBD
+```python
+from langlearncopilot.parsers import get_text_from_webpage
+from langlearncopilot.generators import generate_unique_words
+
+
+def main():
+    # Get text from a webpage
+    text = get_text_from_webpage(
+        url="https://www.lemonde.fr/planete/article/2023/08/27/comment-les-parcs-nationaux-americains-tentent-de-faire-face-aux-effets-du-rechauffement-climatique_6186696_3244.html"
+    )
+    # Generate unique words from the text
+    words = generate_unique_words(article=text, language="french")
+    print(words)
+
+
+if __name__ == "__main__":
+    main()
+
+```
+returns
+```python
+{
+    'comment': 'how',
+    'les': 'the',
+    'parcs': 'parks',
+    'nationaux': 'national',
+    'américains': 'american',
+    'tentent': 'try',
+    'de': 'of',
+    ...
+}
+```

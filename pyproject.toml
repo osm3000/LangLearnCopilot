@@ -1,12 +1,20 @@
 [tool.poetry]
 name = "langlearncopilot"
-version = "0.1.0"
-description = "A human-language learning copilot"
+version = "0.2.0"
+description = "LangLearnCopilot is a library to help you learn a 'human' language."
 authors = ["osm3000 <bd2fc312-d8c3-482f-8535-94c14174bc88@anonaddy.me>"]
 readme = "README.md"
+keywords = ["langlearncopilot", "gpt", "copilot"]
+repository = "https://github.com/osm3000/LangLearnCopilot"
 classifiers = [
     "Topic :: Education",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: OSI Approved :: MIT License",
+    "Topic :: Python :: 3.7",
+    "Topic :: Python :: 3.8",
+    "Topic :: Python :: 3.9",
+    "Topic :: Python :: 3.10",
+    "Topic :: Python :: 3.11",
 ]
 
 [tool.poetry.dependencies]
@@ -15,11 +23,15 @@ requests = "^2.31.0"
 openai = "^0.27.8"
 pyyaml = "^6.0.1"
 python-dotenv = "^1.0.0"
+beautifulsoup4 = "^4.12.2"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.4.0"
 tox = "^4.9.0"
-twine = "^4.0.2"
+types-requests = "^2.31.0.2"
+types-pyyaml = "^6.0.12.11"
+pytest = "^7.4.0"
+mypy = "^1.5.1"
+flake8 = "^6.1.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -28,3 +40,8 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/osm3000/LangLearnCopilot/issues"
 "Home Page" = "https://github.com/osm3000/LangLearnCopilot"
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
