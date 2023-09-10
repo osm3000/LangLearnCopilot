@@ -1,5 +1,4 @@
-import typing
-from ..datatypes import *
+from ..datatypes import MULTIPLE_PHRASES_TRANSLATION, TEXT, TEXT_TRANSLATION
 
 
 def save_multi_phrase(

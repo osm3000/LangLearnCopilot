@@ -1,7 +1,9 @@
-import openai
-import os
 import logging
+import os
+
 import dotenv
+import openai
+
 from ..datatypes import TEXT
 
 # Set up logging
@@ -66,9 +68,5 @@ def call_openai(prompt_to_send: TEXT) -> TEXT:
         messages=open_ai_data_struct,
         temperature=0.7,
         max_tokens=512,
-        # top_p=1,
-        # frequency_penalty=0,
-        # presence_penalty=0,
-        # stop=["\n"]
     )["choices"][0]["message"]["content"]
     return model_response

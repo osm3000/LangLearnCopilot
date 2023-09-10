@@ -1,10 +1,11 @@
-from langlearncopilot.datatypes import MULTIPLE_PHRASES_TRANSLATION, TEXT_TRANSLATION
+import os
+
+import pytest
+
 from langlearncopilot.utilities.save_anki_format import (
     save_multi_phrase,
     save_unique_words,
 )
-import os
-import pytest
 
 
 @pytest.fixture
