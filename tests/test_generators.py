@@ -1,10 +1,10 @@
-from langlearncopilot.generators.main import generate_phrase_for_multiple_words
 from unittest.mock import patch
+
 from langlearncopilot.generators.main import (
-    generate_unique_words,
+    PROMPT_TEMPLATE,
     generate_phrase_for_multiple_words,
     generate_phrases,
-    PROMPT_TEMPLATE,
+    generate_unique_words,
 )
 
 

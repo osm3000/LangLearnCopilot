@@ -1,5 +1,5 @@
-from langlearncopilot.parsers import get_text_from_webpage
 from langlearncopilot.generators import generate_unique_words
+from langlearncopilot.parsers import get_text_from_webpage
 
 
 def main():

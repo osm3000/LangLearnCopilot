@@ -8,12 +8,10 @@ TODO
     - Always ship with min interface
 - Add the testcases
 - Add tox to orchestrate the testing
-- Workflows
-  - on pull request
-    - run mypy
 - Check interacting with Anki via CLI `https://pypi.org/project/inka/`. Might lead to much easier experience for users
 - Add examples for the site parser
 - Modify the readme to take into account changes in the functions
+- `pydantic` for the dataclasses instead of type hints?
 
 =======
 
@@ -25,6 +23,7 @@ Done
   - on pull request
     - run tests
     - run flake8
+    - run mypy
   - On release
     - Publish to pypi
   - On pre-release

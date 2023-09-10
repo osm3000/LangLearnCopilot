@@ -1,4 +1,4 @@
-from typing import List, Sequence, Mapping, Optional
+from typing import List, Mapping, Optional, Sequence
 
 TEXT = str
 OPTIONAL_TEXT = Optional[TEXT]

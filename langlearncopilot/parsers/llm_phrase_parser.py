@@ -1,4 +1,4 @@
-from ..datatypes import TEXT_TRANSLATION, MULTIPLE_PHRASES_TRANSLATION
+from ..datatypes import MULTIPLE_PHRASES_TRANSLATION, TEXT_TRANSLATION
 
 
 def _insert_word_before_phrases_group(word: str, phrases_group: list):

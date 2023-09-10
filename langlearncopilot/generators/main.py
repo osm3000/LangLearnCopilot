@@ -1,17 +1,17 @@
-import yaml
-import pathlib
 import logging
+import pathlib
 
+import yaml
+
+from ..datatypes import (
+    MULTIPLE_PHRASES_TRANSLATION,
+    OPTIONAL_TEXT,
+    TEXT,
+    TEXT_SEQUENCE,
+    TEXT_TRANSLATION,
+)
 from ..llm_calls import call_openai
 from ..parsers import phrase_parser, word_parser
-from ..datatypes import (
-    TEXT,
-    TEXT_TRANSLATION,
-    MULTIPLE_PHRASES_TRANSLATION,
-    TEXT_SEQUENCE,
-    OPTIONAL_TEXT,
-)
-
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
