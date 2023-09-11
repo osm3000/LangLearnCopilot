@@ -29,7 +29,7 @@ def test_save_multi_phrase(file_path):
     ]
 
     # Call the function
-    save_multi_phrase(data, file_path)
+    formatted_data = save_multi_phrase(data, file_path)
 
     # Check if the file was created and contains the expected data
     with open(file_path, "r") as f:
@@ -38,14 +38,49 @@ def test_save_multi_phrase(file_path):
             == "hello; hello world; bonjour le monde\ngoodbye; goodbye world; au revoir le monde"
         )
 
+    assert isinstance(formatted_data, list)
+    assert len(formatted_data) == 2
+
 
 def test_save_unique_words(file_path):
     # Define test data
     data = {"hello": "bonjour", "world": "monde"}
 
     # Call the function
-    save_unique_words(data, file_path)
+    formatted_data = save_unique_words(data, file_path)
 
     # Check if the file was created and contains the expected data
     with open(file_path, "r") as f:
         assert f.read() == "hello; bonjour\nworld; monde"
+
+    assert isinstance(formatted_data, list)
+    assert len(formatted_data) == 2
+
+
+def test_save_unique_words_without_file():
+    # Define test data
+    data = {"hello": "bonjour", "world": "monde"}
+
+    # Call the function
+    formatted_data = save_unique_words(data)
+
+    assert isinstance(formatted_data, list)
+    assert len(formatted_data) == 2
+
+
+def test_save_multi_phrase_without_file():
+    # Define test data
+    data = [
+        {"word": "hello", "phrase": "hello world", "translation": "bonjour le monde"},
+        {
+            "word": "goodbye",
+            "phrase": "goodbye world",
+            "translation": "au revoir le monde",
+        },
+    ]
+
+    # Call the function
+    formatted_data = save_multi_phrase(data)
+
+    assert isinstance(formatted_data, list)
+    assert len(formatted_data) == 2
