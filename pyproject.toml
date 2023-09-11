@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "langlearncopilot"
-version = "0.3.0"
+version = "0.3.1"
 description = "LangLearnCopilot is a library to help you learn a 'human' language."
 authors = ["osm3000 <bd2fc312-d8c3-482f-8535-94c14174bc88@anonaddy.me>"]
 readme = "README.md"
